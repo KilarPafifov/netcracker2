@@ -8,7 +8,7 @@ namespace netcracker2
 {
     class ControlFlowStatements1 : IControlFlowStatements1
     {
-        BankDeposit d = new BankDeposit();
+    
         public double GetFunctionValue(double x)
         {
 
@@ -53,5 +53,6 @@ namespace netcracker2
             }
             return minValue;
         }
+
     }
 }

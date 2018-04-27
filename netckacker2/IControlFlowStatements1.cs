@@ -12,5 +12,6 @@ namespace netcracker2
         int[,] initArray();
         int getMinValue(int[,] array);
 
+        Class1 calculateDeposite(double P);
     }
 }

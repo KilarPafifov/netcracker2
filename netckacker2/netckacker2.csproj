@@ -42,11 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BankDeposite.cs" />
+    <Compile Include="BankDeposit.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="ControlFlowStatements1.cs" />
     <Compile Include="ControlFlowStatements1Test.cs" />
     <Compile Include="IControlFlowStatements1.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
