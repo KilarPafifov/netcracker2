@@ -1,8 +1,10 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using netckacker2;
 
 namespace netcracker2
 {
@@ -68,9 +70,31 @@ namespace netcracker2
 
         }
 
+        public static bool TestCalculateDeposite()
+        {
+            //arrange
+            ControlFlowStatements1 obj = new ControlFlowStatements1();
+            BankDeposit expected = new BankDeposit();
+            BankDeposit actual = new BankDeposit();
+            expected.deposit = 5062.5;
+            expected.year = 4;
+            //act
+            actual = obj.calculateDeposite(50);
+            //assert
+            if (expected.year != actual.year)
+            {
+                return false;
+            }
+            if (expected.deposit != actual.deposit)
+            {
+                return false;
+            }
+            return true;
+        }
+
         static void Main(string[] args)
-        { 
-            Console.WriteLine(8);
+        {
+            Console.WriteLine(TestCalculateDeposite());
             Console.ReadLine();
         }
     }

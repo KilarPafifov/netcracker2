@@ -8,7 +8,7 @@ namespace netckacker2
 {
     public class BankDeposit
     {
-        public int year;
+        public int year = 0;
         public double deposit;
     }
 }

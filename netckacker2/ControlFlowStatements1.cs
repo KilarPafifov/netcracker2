@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using netckacker2;
 
 namespace netcracker2
 {
@@ -54,5 +55,17 @@ namespace netcracker2
             return minValue;
         }
 
+        public BankDeposit calculateDeposite(double P)
+        {
+            BankDeposit obj = new BankDeposit();
+            obj.deposit = 1000;
+            P /= 100;
+            while(obj.deposit <= 5000)
+            {
+                obj.deposit += obj.deposit * P;
+                obj.year += 1;
+            }
+            return obj;
+        }
     }
 }
