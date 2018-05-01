@@ -65,6 +65,7 @@ namespace netcracker2
                 obj.deposit += obj.deposit * P;
                 obj.year += 1;
             }
+            Console.WriteLine(obj.ToString());
             return obj;
         }
     }

@@ -92,9 +92,52 @@ namespace netcracker2
             return true;
         }
 
+        public static bool TestEmployee()
+        {
+            //arrange
+            Employee expected = new Employee();
+            Employee actual = new Employee();
+            Employee manager = new Employee();
+            Employee topManager = new Employee();
+            topManager.setFirstName("Karl");
+            manager.setManager(topManager);
+            manager.setFirstName("John");
+            manager.setLastName("Johnes");
+            expected.setManager(manager);
+            expected.setFirstName("Pavel");
+            expected.setLastName("Sokolov");
+            expected.increaseSalary(500);
+            //assert
+            if (expected.getFirstName() != "Pavel")
+            {
+                return false;
+            }
+            if(expected.getLastName() != "Sokolov")
+            {
+                return false;
+            }
+            if(expected.getFullName() != "Pavel Sokolov")
+            {
+                return false;
+            }
+            if(expected.getManagerName() != "John")
+            {
+                return false;
+            }
+            if(expected.getTopManager() != topManager)
+            {
+                return false;
+            }
+            if(expected.getSalary() != 1500)
+            {
+                return false;
+            }
+            return true;
+        }
+
         static void Main(string[] args)
         {
-            Console.WriteLine(TestCalculateDeposite());
+            Console.WriteLine(TestEmployee());
             Console.ReadLine();
         }
     }

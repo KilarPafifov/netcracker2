@@ -45,7 +45,9 @@
     <Compile Include="BankDeposit.cs" />
     <Compile Include="ControlFlowStatements1.cs" />
     <Compile Include="ControlFlowStatements1Test.cs" />
+    <Compile Include="Employee.cs" />
     <Compile Include="IControlFlowStatements1.cs" />
+    <Compile Include="IEmployee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
