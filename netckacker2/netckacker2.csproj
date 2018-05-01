@@ -43,11 +43,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BankDeposit.cs" />
+    <Compile Include="Circle.cs" />
     <Compile Include="ControlFlowStatements1.cs" />
     <Compile Include="ControlFlowStatements1Test.cs" />
     <Compile Include="Employee.cs" />
+    <Compile Include="FigureTest.cs" />
     <Compile Include="IControlFlowStatements1.cs" />
     <Compile Include="IEmployee.cs" />
+    <Compile Include="IFigure.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -96,9 +96,8 @@ namespace netcracker2
         {
             //arrange
             Employee expected = new Employee();
-            Employee actual = new Employee();
-            Employee manager = new Employee();
-            Employee topManager = new Employee();
+            IEmployee manager = new Employee();
+            IEmployee topManager = new Employee();
             topManager.setFirstName("Karl");
             manager.setManager(topManager);
             manager.setFirstName("John");
@@ -135,10 +134,5 @@ namespace netcracker2
             return true;
         }
 
-        static void Main(string[] args)
-        {
-            Console.WriteLine(TestEmployee());
-            Console.ReadLine();
-        }
     }
 }
