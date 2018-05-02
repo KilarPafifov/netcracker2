@@ -23,9 +23,26 @@ namespace netckacker2
             }
             return true;
         }
+
+        public static bool TestTriangle()
+        {
+            //arrange
+            IFigure obj = new Triangle();
+            double expected = 8.4375;
+            //act
+            double actual = obj.GetArea();
+            //assert
+            if (expected != actual)
+            {
+                return false;
+            }
+            return true;
+
+
+        }
         static void Main(string[] args)
         {
-            Console.WriteLine(TestCircle());
+            Console.WriteLine(TestTriangle());
             Console.ReadLine();
         }
     }
