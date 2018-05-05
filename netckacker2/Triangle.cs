@@ -11,17 +11,39 @@ namespace netckacker2
         private double a;
         private double b;
         private double c;
-        private double p;
+
+        public Triangle(double a, double b, double c)
+        {
+            this.a = a;
+            this.b = b;
+            this.c = c;
+        }
+        
         public Triangle()
         {
-            a = 2;
-            b = 3;
-            c = 4;
-            p = (a + b + c) / 2;
+
+        }
+        public void SetSides(double a, double b, double c)
+        {
+            this.a = a;
+            this.b = b;
+            this.c = c;
         }
 
+        public bool IsRectangular()
+        {
+            if ((a * a) + (b * b) == (c * c)
+                || (c * c) + (b * b) == (a * a)
+                || (a * a) + (c * c) == (b * b))
+            {
+                return true;
+            }
+            return false;
+        }
         public double GetArea()
         {
+            double p;
+            p = (a + b + c) / 2;
             return p * (p - a) * (p - b) * (p - c);
         }
     }

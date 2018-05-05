@@ -24,10 +24,10 @@ namespace netckacker2
             return true;
         }
 
-        public static bool TestTriangle()
+        public static bool TestTriangleGetArea()
         {
             //arrange
-            IFigure obj = new Triangle();
+            IFigure obj = new Triangle(2, 3, 4);
             double expected = 8.4375;
             //act
             double actual = obj.GetArea();
@@ -40,9 +40,28 @@ namespace netckacker2
 
 
         }
+
+        public static bool TestTriangleIsRectangular()
+        {
+            //arrange
+            Triangle notRect = new Triangle(2, 2, 2);
+            Triangle rect = new Triangle(8, 6, 10);
+            //assert
+            if (rect.IsRectangular() != true)
+            {
+                return false;
+            }
+
+            if(notRect.IsRectangular() != false)
+            {
+                return false;
+            }
+
+            return true;
+        }
         static void Main(string[] args)
         {
-            Console.WriteLine(TestTriangle());
+            Console.WriteLine(TestTriangleIsRectangular());
             Console.ReadLine();
         }
     }
