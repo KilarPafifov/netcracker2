@@ -1,0 +1,6 @@
+C:\Users\килар\source\repos\netckacker2\netcracker2.test\bin\Debug\netcoreapp2.0\netcracker2.test.deps.json
+C:\Users\килар\source\repos\netckacker2\netcracker2.test\bin\Debug\netcoreapp2.0\netcracker2.test.dll
+C:\Users\килар\source\repos\netckacker2\netcracker2.test\obj\Debug\netcoreapp2.0\netcracker2.test.csprojResolveAssemblyReference.cache
+C:\Users\килар\source\repos\netckacker2\netcracker2.test\obj\Debug\netcoreapp2.0\netcracker2.test.csproj.CoreCompileInputs.cache
+C:\Users\килар\source\repos\netckacker2\netcracker2.test\obj\Debug\netcoreapp2.0\netcracker2.test.AssemblyInfoInputs.cache
+C:\Users\килар\source\repos\netckacker2\netcracker2.test\obj\Debug\netcoreapp2.0\netcracker2.test.AssemblyInfo.cs

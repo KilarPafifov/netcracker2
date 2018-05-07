@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace netckacker2
 {
-    class Triangle : IFigure
+    public class Triangle : IFigure
     {
         private double a;
         private double b;

@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace netckacker2
 {
-    public interface IFigure
+    public static class Geomethric
     {
-        double GetArea();
+        public static double Area(IFigure figure)
+        {
+            return figure.GetArea();
+        }
     }
 }

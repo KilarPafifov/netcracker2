@@ -12,7 +12,7 @@ namespace netckacker2
         public static bool TestCircle()
         {
             //arrange
-            IFigure obj = new Circle();
+            IFigure obj = new Circle(5);
             double expected = 78.5;
             //act
             double actual = obj.GetArea();
@@ -59,9 +59,11 @@ namespace netckacker2
 
             return true;
         }
+
         static void Main(string[] args)
         {
-            Console.WriteLine(TestTriangleIsRectangular());
+            
+            Console.WriteLine(Geomethric.Area(new Circle(1)));
             Console.ReadLine();
         }
     }

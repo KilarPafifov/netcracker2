@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using netckacker2;
 
-namespace netcracker2
+namespace netckracker2
 {
     class ControlFlowStatements1Test
     {

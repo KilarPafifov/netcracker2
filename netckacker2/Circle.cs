@@ -10,10 +10,10 @@ namespace netckacker2
     {
         private double radius;
         private double p;
-        public Circle()
+        public Circle(double r)
         {
             p = 3.14;
-            radius = 5;
+            radius = r;
         }
         public double GetArea()
         {

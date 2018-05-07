@@ -5,7 +5,7 @@ using netckacker2;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace netcracker2
+namespace netckracker2
 {
     public interface IControlFlowStatements1
     {
