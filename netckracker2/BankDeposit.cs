@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace netckacker2
+namespace netckracker2
 {
-    public interface IFigure
+    public class BankDeposit
     {
-        double GetArea();
+        public int year = 0;
+        public double deposit;
     }
 }

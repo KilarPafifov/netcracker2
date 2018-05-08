@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using NUnit.Framework;
-using netckacker2;
+using netckracker2;
+
 namespace netckracker2.test
 {
     [TestFixture]
