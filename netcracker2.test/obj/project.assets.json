@@ -212,13 +212,13 @@
           "build/NUnit.props": {}
         }
       },
-      "netckacker2/1.0.0": {
+      "netckracker2/1.0.0": {
         "type": "project",
         "compile": {
-          "bin/placeholder/netckacker2.dll": {}
+          "bin/placeholder/netckracker2.dll": {}
         },
         "runtime": {
-          "bin/placeholder/netckacker2.dll": {}
+          "bin/placeholder/netckracker2.dll": {}
         }
       }
     }
@@ -713,17 +713,17 @@
         "nunit.nuspec"
       ]
     },
-    "netckacker2/1.0.0": {
+    "netckracker2/1.0.0": {
       "type": "project",
-      "path": "../netckacker2/netckacker2.csproj",
-      "msbuildProject": "../netckacker2/netckacker2.csproj"
+      "path": "../netckacker2/netckracker2.csproj",
+      "msbuildProject": "../netckacker2/netckracker2.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
       "Microsoft.NETCore.App >= 2.0.0",
       "NUnit >= 3.10.1",
-      "netckacker2 >= 1.0.0"
+      "netckracker2 >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -759,8 +759,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\килар\\source\\repos\\netcracker2-d5b1cd2d6c74e7100b875d30c45915b1fa6a8257\\netcracker2-d5b1cd2d6c74e7100b875d30c45915b1fa6a8257\\netckacker2\\netckacker2.csproj": {
-              "projectPath": "C:\\Users\\килар\\source\\repos\\netcracker2-d5b1cd2d6c74e7100b875d30c45915b1fa6a8257\\netcracker2-d5b1cd2d6c74e7100b875d30c45915b1fa6a8257\\netckacker2\\netckacker2.csproj"
+            "C:\\Users\\килар\\source\\repos\\netcracker2-d5b1cd2d6c74e7100b875d30c45915b1fa6a8257\\netcracker2-d5b1cd2d6c74e7100b875d30c45915b1fa6a8257\\netckacker2\\netckracker2.csproj": {
+              "projectPath": "C:\\Users\\килар\\source\\repos\\netcracker2-d5b1cd2d6c74e7100b875d30c45915b1fa6a8257\\netcracker2-d5b1cd2d6c74e7100b875d30c45915b1fa6a8257\\netckacker2\\netckracker2.csproj"
             }
           }
         }

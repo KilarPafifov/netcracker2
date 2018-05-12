@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\netckacker2\netckacker2.csproj" />
+    <ProjectReference Include="..\netckacker2\netckracker2.csproj" />
   </ItemGroup>
 
 </Project>
