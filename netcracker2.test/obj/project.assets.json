@@ -734,11 +734,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\килар\\source\\repos\\netckacker2\\netcracker2.test\\netckracker2.test.csproj",
+      "projectUniqueName": "C:\\Users\\килар\\source\\repos\\netckracker2\\netcracker2.test\\netckracker2.test.csproj",
       "projectName": "netckracker2.test",
-      "projectPath": "C:\\Users\\килар\\source\\repos\\netckacker2\\netcracker2.test\\netckracker2.test.csproj",
+      "projectPath": "C:\\Users\\килар\\source\\repos\\netckracker2\\netcracker2.test\\netckracker2.test.csproj",
       "packagesPath": "C:\\Users\\килар\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\килар\\source\\repos\\netckacker2\\netcracker2.test\\obj\\",
+      "outputPath": "C:\\Users\\килар\\source\\repos\\netckracker2\\netcracker2.test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
@@ -759,8 +759,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\килар\\source\\repos\\netckacker2\\netckacker2\\netckracker2.csproj": {
-              "projectPath": "C:\\Users\\килар\\source\\repos\\netckacker2\\netckacker2\\netckracker2.csproj"
+            "C:\\Users\\килар\\source\\repos\\netckracker2\\netckacker2\\netckracker2.csproj": {
+              "projectPath": "C:\\Users\\килар\\source\\repos\\netckracker2\\netckacker2\\netckracker2.csproj"
             }
           }
         }

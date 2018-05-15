@@ -58,7 +58,9 @@
     <Compile Include="IControlFlowStatements1.cs" />
     <Compile Include="IEmployee.cs" />
     <Compile Include="IFigure.cs" />
+    <Compile Include="ITreeNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TreeNode.cs" />
     <Compile Include="Triangle.cs" />
   </ItemGroup>
   <ItemGroup>
