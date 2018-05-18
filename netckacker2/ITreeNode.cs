@@ -8,11 +8,13 @@ namespace netckacker2
 {
     public interface ITreeNode
     {
-        ITreeNode GetParent();
+        void SetData(Object data);
         void SetParent(ITreeNode parent);
-        ITreeNode GetRoot();
-        bool IsLeaf();
+        Object GetData();
+        ITreeNode GetParent();
+        Object GetRoot();
         int GetChildCount();
+        bool IsLeaf();
         void AddChild(ITreeNode child);
         bool RemoveChild(ITreeNode child);
     }

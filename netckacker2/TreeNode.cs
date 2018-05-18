@@ -8,26 +8,47 @@ namespace netckacker2
 {
     class TreeNode : ITreeNode
     {
-        private int data;
+        private Object data;
         private ITreeNode parent;
-        private HashSet<ITreeNode> childset;
+        private HashSet<ITreeNode> childset = new HashSet<ITreeNode>();
+        public void SetParent(ITreeNode parent)
+        {
+            this.parent = parent;
+        }
+        public void SetData(Object data)
+        {
+            this.data = data;
+        }
         public ITreeNode GetParent()
         {
-            return parent;
+            return this.parent;
         }
-
-        public ITreeNode GetRoot()
+        public Object GetData()
         {
+            return data;
+        }
+        public Object GetRoot()
+        {
+            
             if (this.parent == null)
             {
                 return null;
             }
-            return null; //доделать самому
-        }
 
-        public void SetParent(ITreeNode parent)
+            if (this.GetParent().GetParent() == null)
+            {
+                return this.parent;
+            }
+            while (this.GetParent().GetParent() != null)
+            {
+                this.parent = this.GetParent().GetParent();
+            }
+            
+            return this.parent;
+        }
+        public int GetChildCount()
         {
-            this.parent = parent;
+            return childset.Count;
         }
 
         public bool IsLeaf()
@@ -38,10 +59,6 @@ namespace netckacker2
             }
             return false;
         }
-        public int GetChildCount()
-        {
-            return childset.Count;
-        }
 
         public void AddChild(ITreeNode child)
         {
@@ -51,6 +68,12 @@ namespace netckacker2
 
         public bool RemoveChild(ITreeNode child)
         {
+            if (child == null)
+            {
+                return false;
+            }
+            childset.Remove(this);
+            this.parent = null;
             return true;
         }
     }

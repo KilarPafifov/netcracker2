@@ -59,12 +59,5 @@ namespace netckracker2
 
             return true;
         }
-
-        static void Main(string[] args)
-        {
-            
-            Console.WriteLine(Geomethric.Area(new Circle(1)));
-            Console.ReadLine();
-        }
     }
 }

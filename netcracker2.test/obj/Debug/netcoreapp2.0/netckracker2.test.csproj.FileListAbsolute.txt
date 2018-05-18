@@ -1,0 +1,13 @@
+C:\Users\килар\source\repos\netckracker2\netcracker2.test\bin\Debug\netcoreapp2.0\netckracker2.test.deps.json
+C:\Users\килар\source\repos\netckracker2\netcracker2.test\bin\Debug\netcoreapp2.0\netckracker2.test.dll
+C:\Users\килар\source\repos\netckracker2\netcracker2.test\bin\Debug\netcoreapp2.0\netckracker2.test.pdb
+C:\Users\килар\source\repos\netckracker2\netcracker2.test\bin\Debug\netcoreapp2.0\netckacker2.exe
+C:\Users\килар\source\repos\netckracker2\netcracker2.test\bin\Debug\netcoreapp2.0\netckacker2.pdb
+C:\Users\килар\source\repos\netckracker2\netcracker2.test\bin\Debug\netcoreapp2.0\netckacker2.exe.config
+C:\Users\килар\source\repos\netckracker2\netcracker2.test\obj\Debug\netcoreapp2.0\netckracker2.test.csprojResolveAssemblyReference.cache
+C:\Users\килар\source\repos\netckracker2\netcracker2.test\obj\Debug\netcoreapp2.0\netckracker2.test.csproj.CoreCompileInputs.cache
+C:\Users\килар\source\repos\netckracker2\netcracker2.test\obj\Debug\netcoreapp2.0\netckracker2.test.AssemblyInfoInputs.cache
+C:\Users\килар\source\repos\netckracker2\netcracker2.test\obj\Debug\netcoreapp2.0\netckracker2.test.AssemblyInfo.cs
+C:\Users\килар\source\repos\netckracker2\netcracker2.test\obj\Debug\netcoreapp2.0\netckracker2.test.csproj.CopyComplete
+C:\Users\килар\source\repos\netckracker2\netcracker2.test\obj\Debug\netcoreapp2.0\netckracker2.test.dll
+C:\Users\килар\source\repos\netckracker2\netcracker2.test\obj\Debug\netcoreapp2.0\netckracker2.test.pdb
