@@ -27,30 +27,27 @@ namespace netckacker2
         {
             return data;
         }
-        public Object GetRoot()
+        public ITreeNode GetRoot()
         {
             
             if (this.parent == null)
             {
-                return null;
+                return this;
             }
 
-            if (this.GetParent().GetParent() == null)
+            ITreeNode currentNode = this;
+
+            while (currentNode.GetParent() != null)
             {
-                return this.parent;
-            }
-            while (this.GetParent().GetParent() != null)
-            {
-                this.parent = this.GetParent().GetParent();
+                currentNode = currentNode.GetParent();
             }
             
-            return this.parent;
+            return currentNode;
         }
         public int GetChildCount()
         {
             return childset.Count;
         }
-
         public bool IsLeaf()
         {
             if (childset.Count == 0)
@@ -59,22 +56,27 @@ namespace netckacker2
             }
             return false;
         }
-
         public void AddChild(ITreeNode child)
         {
             childset.Add(child);
             child.SetParent(this);
         }
-
         public bool RemoveChild(ITreeNode child)
+
         {
-            if (child == null)
+            if (!childset.Contains(child))
             {
                 return false;
             }
-            childset.Remove(this);
-            this.parent = null;
+            childset.Remove(child);
+            child.SetParent(null);
             return true;
         }
+
+        public String GetTreePath()
+        {
+            return " ";
+        }
+
     }
 }

@@ -12,11 +12,12 @@ namespace netckacker2
         void SetParent(ITreeNode parent);
         Object GetData();
         ITreeNode GetParent();
-        Object GetRoot();
+        ITreeNode GetRoot();
         int GetChildCount();
         bool IsLeaf();
         void AddChild(ITreeNode child);
         bool RemoveChild(ITreeNode child);
+        String GetTreePath();
     }
 }
 

@@ -29,8 +29,8 @@ namespace netckacker2
             ITreeNode node_0 = new TreeNode();
             node_0.SetData("node_0");
             node_0.AddChild(node_1);
-
-            if (node_0.GetRoot() != null)
+            
+            if (node_0.GetRoot() != node_0)
             {
                 return false;
             }
