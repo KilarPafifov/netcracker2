@@ -75,7 +75,17 @@ namespace netckacker2
 
         public String GetTreePath()
         {
-            return " ";
+            ITreeNode currentNode = this;
+            String output = "empty";
+
+            while (currentNode != null)
+            {
+                output += "<-" + Convert.ToString(currentNode.GetData());
+                currentNode = currentNode.GetParent();
+            }
+
+            Console.WriteLine(output);
+            return output;
         }
 
     }
