@@ -84,9 +84,44 @@ namespace netckacker2
                 currentNode = currentNode.GetParent();
             }
 
-            Console.WriteLine(output);
             return output;
         }
 
+        public ITreeNode FindChild(object data)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ITreeNode FindParent(Object data)
+        {
+            ITreeNode currentNode = this;
+            ITreeNode empty = new TreeNode();
+            int k = 0;
+            while (currentNode.GetParent() != null)
+            {
+                if (currentNode.GetData().Equals(data))
+                {
+                    return currentNode;
+                }
+                currentNode = currentNode.GetParent();
+
+                if(currentNode.GetData() == null && k == 0)
+                {
+                    empty = this;
+                    k += 1;
+                }
+            }
+            return empty;
+        }
+
+        public void SetExpanded(bool expanded)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsExpanded()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

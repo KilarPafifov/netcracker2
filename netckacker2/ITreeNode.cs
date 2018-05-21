@@ -18,6 +18,11 @@ namespace netckacker2
         void AddChild(ITreeNode child);
         bool RemoveChild(ITreeNode child);
         String GetTreePath();
+        ITreeNode FindChild(Object data);
+        ITreeNode FindParent(Object data);
+        void SetExpanded(bool expanded);
+        bool IsExpanded();
+      //  Iterator<ITreeNode> GetChildrenIterator();
     }
 }
 
