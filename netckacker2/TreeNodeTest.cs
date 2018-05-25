@@ -121,7 +121,7 @@ namespace netckacker2
                 Console.WriteLine("test 2");
                 return false;
             }
-
+            
             if (node_4.FindParent("node_4") != node_4)
             {
                 Console.WriteLine("test 4");

@@ -95,23 +95,16 @@ namespace netckacker2
         public ITreeNode FindParent(Object data)
         {
             ITreeNode currentNode = this;
-            ITreeNode empty = new TreeNode();
-            int k = 0;
-            while (currentNode.GetParent() != null)
+
+            while (currentNode != null)
             {
                 if (currentNode.GetData().Equals(data))
                 {
                     return currentNode;
                 }
                 currentNode = currentNode.GetParent();
-
-                if(currentNode.GetData() == null && k == 0)
-                {
-                    empty = this;
-                    k += 1;
-                }
             }
-            return empty;
+            return null;
         }
 
         public void SetExpanded(bool expanded)
