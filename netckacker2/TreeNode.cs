@@ -11,6 +11,7 @@ namespace netckacker2
         private Object data;
         private ITreeNode parent;
         private HashSet<ITreeNode> childset = new HashSet<ITreeNode>();
+        private bool expanded = false;
         public void SetParent(ITreeNode parent)
         {
             this.parent = parent;
@@ -87,34 +88,78 @@ namespace netckacker2
             return output;
         }
 
-        public ITreeNode FindChild(object data)
+        public ITreeNode FindChild(Object data)
         {
-            throw new NotImplementedException();
+            foreach (ITreeNode node in childset)
+            {
+                if (node.GetData() != null)
+                {
+                    if (node.GetData().Equals(data))
+                    {
+                        return node;
+                    }
+                }
+
+                else if (data == null)
+                {
+                    return node;
+                }
+
+                ITreeNode currentNode = node.FindChild(data);
+                if(currentNode != null)
+                {
+                    return currentNode;
+                }
+            }
+             
+            return null;
         }
 
         public ITreeNode FindParent(Object data)
         {
-            ITreeNode currentNode = this;
 
-            while (currentNode != null)
+            if ((this.data == null && data == null) || this.data.Equals(data))
             {
-                if (currentNode.GetData().Equals(data))
-                {
-                    return currentNode;
-                }
-                currentNode = currentNode.GetParent();
+                return this;
             }
-            return null;
+
+            if (parent == null)
+            {
+                return null;
+            }
+
+            return parent.FindParent(data);
         }
 
         public void SetExpanded(bool expanded)
         {
-            throw new NotImplementedException();
-        }
+            this.expanded = expanded;
 
+            foreach (TreeNode current in childset)
+            {
+                current.expanded = expanded;
+
+                ITreeNode treeNode = current;
+                if (treeNode != null)
+                {
+                    treeNode.SetExpanded(expanded);
+                }
+            }
+
+        }
         public bool IsExpanded()
         {
-            throw new NotImplementedException();
+            return expanded;
         }
+
+     /*   public Enumerator<ITreeNode> GetChildrenIterator()
+        {
+            ITreeNode mmm = this;
+            foreach(ITreeNode number in childset)
+            {
+                Console.WriteLine(number.ToString());
+            }
+            return mmm;
+        }*/
     }
 }

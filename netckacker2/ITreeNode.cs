@@ -22,7 +22,7 @@ namespace netckacker2
         ITreeNode FindParent(Object data);
         void SetExpanded(bool expanded);
         bool IsExpanded();
-      //  Iterator<ITreeNode> GetChildrenIterator();
+       // Enumerator<ITreeNode> GetChildrenIterator();
     }
 }
 
