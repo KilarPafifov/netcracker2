@@ -137,13 +137,7 @@ namespace netckacker2
 
             foreach (TreeNode current in childset)
             {
-                current.expanded = expanded;
-
-                ITreeNode treeNode = current;
-                if (treeNode != null)
-                {
-                    treeNode.SetExpanded(expanded);
-                }
+                current.SetExpanded(expanded);
             }
 
         }
@@ -152,14 +146,10 @@ namespace netckacker2
             return expanded;
         }
 
-     /*   public Enumerator<ITreeNode> GetChildrenIterator()
+        public IEnumerator<ITreeNode> GetChildrenEnumerator()
         {
-            ITreeNode mmm = this;
-            foreach(ITreeNode number in childset)
-            {
-                Console.WriteLine(number.ToString());
-            }
-            return mmm;
-        }*/
+            IEnumerator<ITreeNode> enumerator = childset.GetEnumerator();
+            return enumerator;
+        }
     }
 }

@@ -277,6 +277,23 @@ namespace netckacker2
                 return false;
             }
 
+            node_2.SetExpanded(false);
+
+            if (node_5.IsExpanded() != node_2.IsExpanded())
+            {
+                return false;
+            }
+
+            if (node_6.IsExpanded() != node_2.IsExpanded())
+            {
+                return false;
+            }
+
+            if (node_3.IsExpanded() == node_2.IsExpanded())
+            {
+                return false;
+            }
+
             return true;
         }
         private static void Main(string[] args)
