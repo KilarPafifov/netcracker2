@@ -296,10 +296,6 @@ namespace netckacker2
 
             return true;
         }
-        private static void Main(string[] args)
-        {
-            Console.WriteLine(TestSetExpanded());
-            Console.ReadLine();
-        }
+        
     }
 }
