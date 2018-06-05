@@ -17,8 +17,8 @@ namespace netckacker2
                 expected[i] = i + 3;
             }
             IArrayVector currentArray = new ArrayVector();
-            currentArray.set(expected);
-            double[] actual = currentArray.get();
+            currentArray.Set(expected);
+            double[] actual = currentArray.Get();
 
 
             for (int i = 0; i < 5; i++)
@@ -30,9 +30,36 @@ namespace netckacker2
             }
             return true;
         }
+        public static bool TestSetByIndex()
+        {
+            double elem = 4.5;
+            double[] mas = new double[4];
+            for(int i = 0; i < 4; i++)
+            {
+                mas[i] = i + 2;
+            }
+            IArrayVector expected = new ArrayVector();
+            expected.Set(mas);
+            double[] actual = new double[5];
+            for (int i = 0; i < 4; i++)
+            {
+                actual[i] = i + 2;
+            }
+            actual[4] = elem;
+            expected.Set(4, elem);
+            for (int i = 0; i < 5; i++)
+            {
+                if (expected.Get()[i] != actual[i])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        
         private static void Main(string[] args)
         {
-            Console.WriteLine(TestSet());
+            Console.WriteLine(TestSetByIndex());
             Console.ReadLine();
         }
     }
