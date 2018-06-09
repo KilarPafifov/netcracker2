@@ -9,12 +9,15 @@ namespace netckacker2
     class ArrayVector : IArrayVector
     {
         private double[] vector;
-
+        public ArrayVector(){}
+        public ArrayVector(double[] elements)
+        {
+            vector = elements;
+        }
         public void Set(double[] elements)
         {
             vector = elements;   
         }
-
         public void Set(int index, double value)
         {
             int n = vector.Length;
@@ -36,21 +39,18 @@ namespace netckacker2
                 vector[index] = value;
             }
         }
-
         public double[] Get()
         {
             return vector;
         }
-
         public double Get(int index)
         {
-            if (index < vector.Length)
+            if(index < 0 || index >= vector.Length)
             {
-                return vector[index];
+                throw new IndexOutOfRangeException();
             }
-            return -100;
+            return vector[index];
         }
-
         public double GetMax()
         {
             double max = vector[0];
@@ -63,8 +63,6 @@ namespace netckacker2
             }
             return max;
         }
-
-
         public double GetMin()
         {
 
@@ -78,7 +76,6 @@ namespace netckacker2
             }
             return min;
         }
-
         public double GetNorm()
         {
             double norma = 0;
@@ -88,18 +85,23 @@ namespace netckacker2
             }
             return Math.Sqrt(norma);
         }
-
         public int GetSize()
         {
             return vector.Length;
         }
-
-
-        public ArrayVector clone()
+        public IArrayVector Clone()
         {
-            throw new NotImplementedException();
-        }
+            IArrayVector copy = new ArrayVector();
+            double[] copyVector = new double[vector.Length];
 
+            for(int i = 0; i < vector.Length; i++)
+            {
+                copyVector[i] = vector[i];
+            }
+
+            copy.Set(copyVector);
+            return copy;
+        }
         public void Mult(double factor)
         {
             for(int i = 0; i < vector.Length; i++)
@@ -107,11 +109,10 @@ namespace netckacker2
                 vector[i] *= factor;
             }
         }
-
         public double ScalarMult(IArrayVector anotherVector)
         {
             int n;
-            double scalarMult = 0;
+           
             if(vector.Length > anotherVector.GetSize())
             {
                 n = anotherVector.GetSize();
@@ -122,42 +123,35 @@ namespace netckacker2
             }
 
             double[] another = anotherVector.Get();
+            double scalarMult = 0;
 
             for (int i = 0; i < n; i++) 
             {
                 scalarMult += vector[i] * another[i];
             }
 
-            double alfa = 0;
-
-            
-            return scalarMult * alfa;
+            return scalarMult;
         }
-
         public void SortAscending()
         {
+            double buffer = 0;
             for(int i = 0; i < vector.Length - 1; i++)
             {
                 for (int j = i + 1; j < vector.Length; j++)
                 {
                     if(vector[i] > vector[j])
                     {
+                        buffer = vector[i];
                         vector[i] = vector[j];
+                        vector[j] = buffer;
                     }
                 }
             }
         }
-
-        public IArrayVector klone()
-        {
-            throw new NotImplementedException();
-        }
-
         public IArrayVector Sum(IArrayVector anotherVector)
         {
 
             int n;
-            double[] sum;
             if (vector.Length > anotherVector.GetSize())
             {
                 n = anotherVector.GetSize();
@@ -168,7 +162,7 @@ namespace netckacker2
             }
 
             double[] another = anotherVector.Get();
-            sum = new double[n];
+            double[] sum = new double[n];
 
             for (int i = 0; i < n; i++)
             {
