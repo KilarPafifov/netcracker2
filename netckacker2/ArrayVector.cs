@@ -93,12 +93,7 @@ namespace netckacker2
         {
             IArrayVector copy = new ArrayVector();
             double[] copyVector = new double[vector.Length];
-
-            for(int i = 0; i < vector.Length; i++)
-            {
-                copyVector[i] = vector[i];
-            }
-
+            Array.Copy(vector, copyVector, vector.Length);
             copy.Set(copyVector);
             return copy;
         }

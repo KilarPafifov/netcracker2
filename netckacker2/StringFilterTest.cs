@@ -11,34 +11,90 @@ namespace netckacker2
         public static bool TestAdd()
         {
             //arrange
-            IStringFilter actual = new StringFilter("Abc");
-            IStringFilter expected = new StringFilter("aBcdE");
+            ISet<string> foract = new HashSet<string>();
+            foract.Add("abcde");
+
+            IStringFilter actual = new StringFilter(foract);
+            foract.Add("gg");
+
+            IStringFilter expected = new StringFilter(foract);
 
             //act
-            actual.Add("De");
-            
+            actual.Add("gg");
+
             //assert
-            return Enumerable.SequenceEqual(
-                actual.GetCollection().ToString(), expected.GetCollection().ToString());
+            return actual.GetCollection().SequenceEqual(expected.GetCollection());
         }
 
         public static bool TestGetCollection()
         {
             //arrange
-            IStringFilter instance = new StringFilter("ggh");
-            string expected = "ggh";
-
+            ISet<string>expected = new HashSet<string>();
+            expected.Add("asd");
+            IStringFilter instance = new StringFilter(expected);
+      
             //act
-            string actual = instance.GetCollection().ToList()[0] ;
+            ISet<string>actual = instance.GetCollection();
             
             //assert
-            return actual.Equals(expected);
+            return actual.SequenceEqual(expected);
+        }
+
+        public static bool TestRemove()
+        {
+            //arrange
+            ISet<string> k = new HashSet<string>();
+            k.Add("sdfgh");
+            k.Add("asd");
+            IStringFilter b = new StringFilter(k);
+
+            //act
+            b.Remove("asd");
+
+            //assert
+            if(b.GetCollection().Last() == "asd")
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public static bool TestRemoveAll()
+        {
+            //arrange
+            ISet<string> k = new HashSet<string>();
+            k.Add("dfghnm,");
+            k.Add("oooooooooonm,");
+            k.Add("yjklm,");
+            IStringFilter b = new StringFilter(k);
+
+            //act
+            b.RemoveAll();
+
+            //assert
+            if(b.GetCollection().Count() != 0)
+            {
+                return false;
+            }
+
+            return true;
+
         }
         private static void Main(string[] args)
         {
             Console.WriteLine(TestAdd());
             Console.WriteLine(TestGetCollection());
+            Console.WriteLine(TestRemove());
+            Console.WriteLine(TestRemoveAll());
             Console.ReadLine();
         }
     }
 }
+
+
+
+
+
+
+
+

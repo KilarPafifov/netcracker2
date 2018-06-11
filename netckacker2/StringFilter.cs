@@ -8,12 +8,15 @@ namespace netckacker2
 {
     class StringFilter : IStringFilter
     {
-        private HashSet<string> rowset = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        private ISet<string> rowset = new HashSet<string>();
 
         public StringFilter() { }
-        public StringFilter(String s)
+        public StringFilter(ISet<string> set)
         {
-            rowset.Add(s.ToLower());
+            foreach(string element in set)
+            {
+                rowset.Add(element);
+            }
         }
         public void Add(String s)
         {
@@ -28,7 +31,7 @@ namespace netckacker2
             }
         }
 
-        public HashSet<string> GetCollection()
+        public ISet<string> GetCollection()
         {
             return rowset;
         }
@@ -55,12 +58,26 @@ namespace netckacker2
 
         public bool Remove(string s)
         {
-            throw new NotImplementedException();
+            foreach(string elem in rowset)
+            {
+                if(elem == s)
+                {
+                    rowset.Remove(elem);
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         public void RemoveAll()
         {
-            throw new NotImplementedException();
+            if(rowset != null)
+            {
+                rowset.Clear();
+            }
         }
+
+        
     }
 }

@@ -315,13 +315,6 @@ namespace netckacker2
             //assert
             return actual.Equals(expected);
         }
-        /*private static void Main(string[] args)
-        {
-            Console.WriteLine(TestScalarMult());
-            Console.WriteLine(TestClone2());
-            Console.WriteLine(TestGetMin3());
-            Console.ReadLine();
-        }*/
     }
 }
 
