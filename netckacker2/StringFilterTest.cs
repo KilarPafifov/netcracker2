@@ -2,28 +2,50 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace netckacker2
 {
     class StringFilterTest
     {
+        public int some { set; get; }
+        public static bool IsEqualSet(ISet<string> current, ISet<string> other) 
+        {
+            if(current.Count != other.Count)
+            {
+                return false;
+            }
+
+            foreach (string element in current)
+            { 
+                if (!other.Contains(element))
+                {
+                    return false;
+                }
+
+            }
+
+            return true;
+        }
+
+
         public static bool TestAdd()
         {
             //arrange
-            ISet<string> foract = new HashSet<string>();
-            foract.Add("abcde");
-
-            IStringFilter actual = new StringFilter(foract);
-            foract.Add("gg");
-
-            IStringFilter expected = new StringFilter(foract);
+            ISet<string> forActual = new HashSet<string>();
+            forActual.Add("abcde");
+            IStringFilter actual = new StringFilter(forActual);
+            
+            ISet<string> forExpected = new HashSet<string>();
+            forExpected.Add("abcde");
+            forExpected.Add("gg");
+            IStringFilter expected = new StringFilter(forExpected);
 
             //act
             actual.Add("gg");
 
             //assert
-            return actual.GetCollection().SequenceEqual(expected.GetCollection());
+           
+            return IsEqualSet(actual.GetCollection(), expected.GetCollection());
         }
 
         public static bool TestGetCollection()
@@ -80,12 +102,30 @@ namespace netckacker2
             return true;
 
         }
+
+        public static bool TestGetStringsContaining()
+        {
+
+            //arrange
+            ISet<string> forActual = new HashSet<string>();
+            forActual.Add("abcde");
+            IStringFilter forActual2 = new StringFilter(forActual);
+
+            string current = "abcde";
+            IEnumerator<string> expected = forActual.GetEnumerator();
+            
+            IEnumerator<string> actual;
+
+            //act
+            actual = forActual2.GetStringsContaining(current);
+
+            //assert
+            return actual.Equals(expected);
+            
+        }
         private static void Main(string[] args)
         {
-            Console.WriteLine(TestAdd());
-            Console.WriteLine(TestGetCollection());
-            Console.WriteLine(TestRemove());
-            Console.WriteLine(TestRemoveAll());
+            Console.WriteLine(TestGetStringsContaining());
             Console.ReadLine();
         }
     }

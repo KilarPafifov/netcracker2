@@ -46,9 +46,23 @@ namespace netckacker2
             throw new NotImplementedException();
         }
 
-        public IEnumerator<string> GetStringsContaining(string chars)
+        public IEnumerator<String> GetStringsContaining(String chars)
         {
-            throw new NotImplementedException();
+            if(chars == null || chars == "")
+            {
+                return rowset.GetEnumerator();
+            }
+            
+            IStringFilter concatination = new StringFilter();
+            foreach(String elem in rowset)
+            {
+                if (elem.Contains(chars))
+                {
+                    concatination.Add(chars);
+                }
+            }
+
+            return concatination.GetCollection().GetEnumerator();
         }
 
         public IEnumerator<string> GetStringsStartingWith(string begin)
@@ -58,26 +72,13 @@ namespace netckacker2
 
         public bool Remove(string s)
         {
-            foreach(string elem in rowset)
-            {
-                if(elem == s)
-                {
-                    rowset.Remove(elem);
-                    return true;
-                }
-            }
-
-            return false;
+            return rowset.Remove(s);      
         }
 
         public void RemoveAll()
         {
-            if(rowset != null)
-            {
-                rowset.Clear();
-            }
+            rowset.Clear();
         }
-
         
     }
 }
