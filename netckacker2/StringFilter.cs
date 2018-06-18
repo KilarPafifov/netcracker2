@@ -46,23 +46,23 @@ namespace netckacker2
             throw new NotImplementedException();
         }
 
-        public IEnumerator<String> GetStringsContaining(String chars)
+        public IEnumerator<string> GetStringsContaining(string chars)
         {
             if(chars == null || chars == "")
             {
                 return rowset.GetEnumerator();
             }
             
-            IStringFilter concatination = new StringFilter();
-            foreach(String elem in rowset)
+            IStringFilter resultSet = new StringFilter();
+            foreach(string elem in rowset)
             {
                 if (elem.Contains(chars))
                 {
-                    concatination.Add(chars);
+                    resultSet.Add(elem);
                 }
             }
 
-            return concatination.GetCollection().GetEnumerator();
+            return resultSet.GetCollection().GetEnumerator();
         }
 
         public IEnumerator<string> GetStringsStartingWith(string begin)

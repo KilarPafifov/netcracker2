@@ -38,7 +38,7 @@ namespace netckacker2
          *   (все символы, являющиеся буквами, - в нижнем регистре)
          * @return строки, содержащие указанную последовательность символов
          */
-        IEnumerator<String> GetStringsContaining(String chars);
+        IEnumerator<string> GetStringsContaining(string chars);
         /**
          * Ищет и возвращает строки, начинающиеся с указанной последовательности символов,
          *  (без учета регистра). <br/>
