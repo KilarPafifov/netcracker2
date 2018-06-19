@@ -67,7 +67,22 @@ namespace netckacker2
 
         public IEnumerator<string> GetStringsStartingWith(string begin)
         {
-            throw new NotImplementedException();
+
+            if (begin == null || begin == "")
+            {
+                return rowset.GetEnumerator();
+            }
+
+            ISet<string> resultSet = new HashSet<string>();
+            foreach (string elem in rowset)
+            {
+                if (elem.StartsWith(begin))
+                {
+                    resultSet.Add(elem);
+                }
+            }
+
+            return resultSet.GetEnumerator();
         }
 
         public bool Remove(string s)

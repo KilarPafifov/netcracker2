@@ -138,9 +138,46 @@ namespace netckacker2
             return setFromExpectedEnumerator.SequenceEqual(setFromActualEnumerator);
             
         }
+
+        public static bool TestGetStringsStartingWith()
+        {
+            //arrange
+            ISet<string> actualSet = new HashSet<string>();
+            actualSet.Add("john");
+            actualSet.Add("johny");
+            actualSet.Add("sarah");
+            actualSet.Add("bob");
+            IStringFilter actualStringFilter = new StringFilter(actualSet);
+
+            ISet<string> expectedSet = new HashSet<string>();
+            expectedSet.Add("john");
+            expectedSet.Add("johny");
+            IStringFilter expectedStringFilter = new StringFilter(expectedSet);
+            IEnumerator<string> expected = expectedStringFilter.GetCollection().GetEnumerator();
+
+            //act
+            IEnumerator<string> actual = actualStringFilter.GetStringsContaining("jo");
+
+            ISet<string> setFromExpectedEnumerator = new HashSet<string>();
+            while (expected.MoveNext())
+            {
+                setFromExpectedEnumerator.Add(expected.Current);
+            }
+
+            ISet<string> setFromActualEnumerator = new HashSet<string>();
+            while (actual.MoveNext())
+            {
+                setFromActualEnumerator.Add(actual.Current);
+            }
+
+            //assert
+            return setFromExpectedEnumerator.SequenceEqual(setFromActualEnumerator);
+
+        }
+
         private static void Main(string[] args)
         {
-            Console.WriteLine(TestGetStringsContaining());
+            Console.WriteLine(TestGetStringsStartingWith());
             Console.ReadLine();
         }
     }

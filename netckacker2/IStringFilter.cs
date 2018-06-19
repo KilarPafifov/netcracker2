@@ -48,7 +48,7 @@ namespace netckacker2
          *   (для сравнения со строками набора символы нужно привести к нижнему регистру)
          * @return строки, начинающиеся с указанной последовательности символов
          */
-        IEnumerator<String> GetStringsStartingWith(String begin);
+        IEnumerator<string> GetStringsStartingWith(string begin);
         /**
          * Ищет и возвращает все строки, представляющие собой число в заданном формате.<br/>
          * Формат может содержать символ # (место для одной цифры от 0 до 9) и любые символы.
@@ -64,7 +64,7 @@ namespace netckacker2
          * @param format формат числа
          * @return строки, удовлетворяющие заданному числовому формату
          */
-        IEnumerator<String> GetStringsByNumberFormat(String format);
+        IEnumerator<string> GetStringsByNumberFormat(string format);
         /**
          * Ищет и возвращает строки, удовлетворяющие заданному шаблону поиска, содержащему символы *
          * в качестве wildcards (на месте * в строке может быть ноль или больше любых символов).<br/>
@@ -78,6 +78,6 @@ namespace netckacker2
          * @param pattern шаблон поиска (все буквы в нем - в нижнем регистре)
          * @return строки, удовлетворяющие заданному шаблону поиска
          */
-        IEnumerator<String> GetStringsByPattern(String pattern);
+        IEnumerator<string> GetStringsByPattern(string pattern);
     }
 }
