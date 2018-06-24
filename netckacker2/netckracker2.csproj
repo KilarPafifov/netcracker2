@@ -51,6 +51,8 @@
     <Compile Include="ArrayVector.cs" />
     <Compile Include="ArrayVectorTest.cs" />
     <Compile Include="BankDeposit.cs" />
+    <Compile Include="BusinessCard.cs" />
+    <Compile Include="BusinessCardTest.cs" />
     <Compile Include="Circle.cs" />
     <Compile Include="ControlFlowStatements1.cs" />
     <Compile Include="ControlFlowStatements1Test.cs" />
@@ -58,6 +60,7 @@
     <Compile Include="FigureTest.cs" />
     <Compile Include="Geomethric.cs" />
     <Compile Include="IArrayVector.cs" />
+    <Compile Include="IBusinessCard.cs" />
     <Compile Include="IControlFlowStatements1.cs" />
     <Compile Include="IEmployee.cs" />
     <Compile Include="IFigure.cs" />

@@ -39,6 +39,8 @@ namespace netckacker2
         public IEnumerator<string> GetStringsByNumberFormat(string format)
         {
             throw new NotImplementedException();
+
+
         }
 
         public IEnumerator<string> GetStringsByPattern(string pattern)

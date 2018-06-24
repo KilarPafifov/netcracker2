@@ -175,11 +175,7 @@ namespace netckacker2
 
         }
 
-        private static void Main(string[] args)
-        {
-            Console.WriteLine(TestGetStringsStartingWith());
-            Console.ReadLine();
-        }
+        
     }
 }
 
