@@ -9,6 +9,7 @@ namespace netckacker2
 {
     public interface IBusinessCard
     {
+        
         /**
   * This method obtains (via Scanner) information from an input stream
   *  that contains the following information about an Employee:<br/>

@@ -11,12 +11,28 @@ namespace netckacker2
 
     class BusinessCard : IBusinessCard
     {
-        private string employee;
+        private string firstName;
+        private string lastName;
         private string department;
         private string gender;
         private string phoneNumber;
         private int age;
         private int salary;
+
+        public BusinessCard() { }
+
+        public BusinessCard(string firstName, string lastName, string department, int age, 
+            string gender, int salary, string phoneNumber)
+        {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.department = department;
+            this.age = age;
+            this.gender = gender;
+            this.salary = salary;
+            this.phoneNumber = phoneNumber;
+        }
+        
         public int GetAge()
         {
             return age;
@@ -25,25 +41,33 @@ namespace netckacker2
         public IBusinessCard GetBusinessCard(string data)
         {
             //Tommy;Lee;CI;11-11-1999;M;1000;7789995434
-            IBusinessCard card = new BusinessCard();
-            string pattern = @"\w*;\w*;\w*;\d{2}-\d{2}-\d{4};\w;\d{4};\d{10}";
+            BusinessCard card = new BusinessCard(); 
+            string pattern = @"\w+;\w+;\w+;\d{2}-\d{2}-\d{4};[f,m];\d{3,6};\d{10}";
 
             if (Regex.IsMatch(data, pattern, RegexOptions.IgnoreCase))
             {
                 string[] substrings = data.Split(';');
-                employee = substrings[0] + ' ' + substrings[1];
-                department = substrings[2];
+                card.firstName = substrings[0];
+                card.lastName = substrings[1];
+                card.department = substrings[2];
                 string[] substrings2 = substrings[3].Split('-');
-                age = 2018 - Convert.ToInt32(substrings2[2]);
-                gender = substrings[4];
-                salary = Convert.ToInt32(substrings[5]);
-                phoneNumber = substrings[6];
+                card.age = 2018 - Convert.ToInt32(substrings2[2]);
+                card.gender = substrings[4];
+                card.salary = Convert.ToInt32(substrings[5]);
+                card.phoneNumber = substrings[6];
             }
             else
             {
                 Console.WriteLine("Incorrect persnal data!");
                 return null;
             }
+            Console.WriteLine(card.firstName + ' ' + card.lastName);
+            Console.WriteLine(card.department);
+            Console.WriteLine(card.age);
+            Console.WriteLine(card.gender);
+            Console.WriteLine(card.salary);
+            Console.WriteLine(card.phoneNumber);
+           
             return card;
         }
 
@@ -54,7 +78,7 @@ namespace netckacker2
 
         public string GetEmployee()
         {
-            return employee;
+            return firstName + ' ' + lastName;
         }
 
         public string GetGender()

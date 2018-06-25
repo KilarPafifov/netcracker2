@@ -13,40 +13,61 @@ namespace netckacker2
         public static bool TestGetBusinessCard()
         {
             //arrange
-            string s = "Tommy;Lee;CI;11-11-1999;M;1000;7789995434";
-            IBusinessCard business = new BusinessCard();
+            string personalData = "Tommy;Lee;CI;11-11-1999;M;10000;7789995434";
+            string personalData2 = "Chak;Norris;CI;11-11-1999;M;10000;7789995434";
+            string personalData3 = ";;;;;;";
+            string personalData4 = ";Norris;CI;11-11-1999;f;10000;7789995434";
+            IBusinessCard expected = new BusinessCard("Tommy", "Lee", "CI", 19, "M", 10000, "7789995434");
+            IBusinessCard businessCardProvider = new BusinessCard();
 
             //act
-            business.GetBusinessCard(s);
+            IBusinessCard actual = businessCardProvider.GetBusinessCard(personalData);
+            IBusinessCard actual2 = businessCardProvider.GetBusinessCard(personalData2);
 
             //assert
-            if (business.GetEmployee() != "Tommy Lee")
+            if (businessCardProvider.GetBusinessCard(personalData3) != null)
             {
                 return false;
             }
 
-            if(business.GetDepartment() != "CI")
+            if(businessCardProvider.GetBusinessCard(personalData4) != null)
             {
                 return false;
             }
 
-            if(business.GetAge() != 19)
+            if (actual.GetEmployee() != expected.GetEmployee())
             {
+                Console.WriteLine("testEmployee");
                 return false;
             }
 
-            if(business.GetGender() != "M")
+            if(!actual.GetDepartment().Equals(expected.GetDepartment()))
             {
+                Console.WriteLine("testDep");
                 return false;
             }
 
-            if(business.GetSalary() != 1000)
+            if(actual.GetAge() != expected.GetAge())
             {
+                Console.WriteLine("testAge");
                 return false;
             }
 
-            if(business.GetPhoneNumber() != "7789995434")
+            if(actual.GetGender() != expected.GetGender())
             {
+                Console.WriteLine("testGen");
+                return false;
+            }
+
+            if(actual.GetSalary() != expected.GetSalary())
+            {
+                Console.WriteLine("testSalary");
+                return false;
+            }
+
+            if(actual.GetPhoneNumber() != expected.GetPhoneNumber())
+            {
+                Console.WriteLine("testPhone");
                 return false;
             }
 
