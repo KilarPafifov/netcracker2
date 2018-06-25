@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace netckacker2
 {
@@ -45,7 +46,21 @@ namespace netckacker2
 
         public IEnumerator<string> GetStringsByPattern(string pattern)
         {
-            throw new NotImplementedException();
+            if (pattern == null || pattern == "")
+            {
+                return rowset.GetEnumerator();
+            }
+
+            ISet<string> resultSet = new HashSet<string>();
+            foreach (string elem in rowset)
+            {
+                if(Regex.IsMatch(elem, pattern, RegexOptions.IgnoreCase))
+                {
+                    resultSet.Add(elem);
+                }
+            }
+
+            return resultSet.GetEnumerator();
         }
 
         public IEnumerator<string> GetStringsContaining(string chars)
