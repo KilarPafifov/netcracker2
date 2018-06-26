@@ -49,7 +49,7 @@ namespace netckacker2
 
             if(actual.GetAge() != expected.GetAge())
             {
-                Console.WriteLine("testAge");
+                Console.WriteLine(actual.GetAge());
                 return false;
             }
 

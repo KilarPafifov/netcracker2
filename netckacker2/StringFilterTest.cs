@@ -187,13 +187,13 @@ namespace netckacker2
             IStringFilter actualStringFilter = new StringFilter(actualSet);
 
             ISet<string> expectedSet = new HashSet<string>();
-            expectedSet.Add("john");
+            //expectedSet.Add("john");
             expectedSet.Add("johny");
             IStringFilter expectedStringFilter = new StringFilter(expectedSet);
             IEnumerator<string> expected = expectedStringFilter.GetCollection().GetEnumerator();
 
             //act
-            IEnumerator<string> actual = actualStringFilter.GetStringsByPattern(@"\woh\w+");
+            IEnumerator<string> actual = actualStringFilter.GetStringsByPattern(@"j\w+y");
 
             ISet<string> setFromExpectedEnumerator = new HashSet<string>();
             while (expected.MoveNext())
@@ -210,12 +210,12 @@ namespace netckacker2
             //assert
             return setFromExpectedEnumerator.SequenceEqual(setFromActualEnumerator);
         }
-
         private static void Main(string[] args)
         {
             Console.WriteLine(TestGetStringsByPattern());
             Console.ReadLine();
         }
+
 
     }
 }

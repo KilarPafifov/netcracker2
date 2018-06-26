@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using System.Globalization;
 
 namespace netckacker2
 {
@@ -50,15 +51,18 @@ namespace netckacker2
                 card.firstName = substrings[0];
                 card.lastName = substrings[1];
                 card.department = substrings[2];
-                string[] substrings2 = substrings[3].Split('-');
-                card.age = 2018 - Convert.ToInt32(substrings2[2]);
+                
+                DateTime currentDate = DateTime.Now;
+                DateTime birthDate = DateTime.ParseExact(substrings[3], "dd-mm-yyyy", CultureInfo.InvariantCulture);
+                DateTime age = new DateTime((currentDate - birthDate).Ticks);
+                card.age = age.Year - 1;
                 card.gender = substrings[4];
                 card.salary = Convert.ToInt32(substrings[5]);
                 card.phoneNumber = substrings[6];
             }
             else
             {
-                Console.WriteLine("Incorrect persnal data!");
+                Console.WriteLine("Incorrect personal data!");
                 return null;
             }
             Console.WriteLine(card.firstName + ' ' + card.lastName);

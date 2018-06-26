@@ -39,9 +39,13 @@ namespace netckacker2
 
         public IEnumerator<string> GetStringsByNumberFormat(string format)
         {
-            throw new NotImplementedException();
-
-
+            /*"# ###" (целое число от 1000 до 9999),
+         *  "-#.##" (отрицательное число, большее -10, с ровно двумя знаками после десятичной точки)*/
+            if (format == null || format == "")
+            {
+                return rowset.GetEnumerator();
+            }
+            return rowset.GetEnumerator();
         }
 
         public IEnumerator<string> GetStringsByPattern(string pattern)
