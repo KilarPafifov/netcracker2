@@ -210,9 +210,45 @@ namespace netckacker2
             //assert
             return setFromExpectedEnumerator.SequenceEqual(setFromActualEnumerator);
         }
+
+        public static bool TestGetStringsByNumberFormat()
+        {
+            //arrange
+            ISet<string> actualSet = new HashSet<string>();
+            actualSet.Add("-5.67");
+            actualSet.Add("(456)767899-0000");
+            actualSet.Add("3 567");
+            actualSet.Add("56-87 6");
+            IStringFilter actualStringFilter = new StringFilter(actualSet);
+
+            ISet<string> expectedSet = new HashSet<string>();
+            expectedSet.Add("-5.67");
+            //expectedSet.Add("(456)767899-0000");
+            //expectedSet.Add("3 567");
+            IStringFilter expectedStringFilter = new StringFilter(expectedSet);
+            IEnumerator<string> expected = expectedStringFilter.GetCollection().GetEnumerator();
+
+            //act
+            IEnumerator<string> actual = actualStringFilter.GetStringsByNumberFormat("F1");
+
+            ISet<string> setFromExpectedEnumerator = new HashSet<string>();
+            while (expected.MoveNext())
+            {
+                setFromExpectedEnumerator.Add(expected.Current);
+            }
+
+            ISet<string> setFromActualEnumerator = new HashSet<string>();
+            while (actual.MoveNext())
+            {
+                setFromActualEnumerator.Add(actual.Current);
+            }
+
+            //assert
+            return setFromExpectedEnumerator.SequenceEqual(setFromActualEnumerator);
+        }
         private static void Main(string[] args)
         {
-            Console.WriteLine(TestGetStringsByPattern());
+            Console.WriteLine(TestGetStringsByNumberFormat());
             Console.ReadLine();
         }
 

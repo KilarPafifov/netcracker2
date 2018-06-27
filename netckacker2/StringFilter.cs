@@ -41,11 +41,26 @@ namespace netckacker2
         {
             /*"# ###" (целое число от 1000 до 9999),
          *  "-#.##" (отрицательное число, большее -10, с ровно двумя знаками после десятичной точки)*/
-            if (format == null || format == "")
+            if (format == null || format == "" )
             {
                 return rowset.GetEnumerator();
             }
-            return rowset.GetEnumerator();
+
+            if(format == @"\d\s\d{3}" || format == "F1" || format == @"(\d{3})\d{3}-\d{4}")
+            {
+
+                ISet<string> resultSet = new HashSet<string>();
+                foreach (string elem in rowset)
+                {
+                    if (Regex.IsMatch(elem, format, RegexOptions.IgnoreCase))
+                    {
+                        resultSet.Add(elem);
+                    }
+                }
+
+                return resultSet.GetEnumerator();
+            }
+            return null;
         }
 
         public IEnumerator<string> GetStringsByPattern(string pattern)
