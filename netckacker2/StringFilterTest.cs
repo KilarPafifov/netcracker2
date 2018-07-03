@@ -222,14 +222,14 @@ namespace netckacker2
             IStringFilter actualStringFilter = new StringFilter(actualSet);
 
             ISet<string> expectedSet = new HashSet<string>();
-            expectedSet.Add("-5.67");
-            //expectedSet.Add("(456)767899-0000");
+            //expectedSet.Add("-5.67");
+            expectedSet.Add("(456)767899-0000");
             //expectedSet.Add("3 567");
             IStringFilter expectedStringFilter = new StringFilter(expectedSet);
             IEnumerator<string> expected = expectedStringFilter.GetCollection().GetEnumerator();
 
             //act
-            IEnumerator<string> actual = actualStringFilter.GetStringsByNumberFormat("F1");
+            IEnumerator<string> actual = actualStringFilter.GetStringsByNumberFormat("(###)######-####");
 
             ISet<string> setFromExpectedEnumerator = new HashSet<string>();
             while (expected.MoveNext())

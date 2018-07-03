@@ -46,23 +46,43 @@ namespace netckacker2
                 return rowset.GetEnumerator();
             }
 
-            if(format == @"\d\s\d{3}" || format == "F1" || format == @"(\d{3})\d{3}-\d{4}")
+            ISet<string> resultSet = new HashSet<string>(); 
+
+            foreach(string elem in rowset)
             {
-
-                ISet<string> resultSet = new HashSet<string>();
-                foreach (string elem in rowset)
+                if(isStringsEqual(format, elem))
                 {
-                    if (Regex.IsMatch(elem, format, RegexOptions.IgnoreCase))
-                    {
-                        resultSet.Add(elem);
-                    }
-                }
-
-                return resultSet.GetEnumerator();
+                    resultSet.Add(elem);
+                }           
             }
-            return null;
+
+            return resultSet.GetEnumerator();
         }
 
+        public bool isStringsEqual(string format, string checkString)
+        {
+            if (format.Length != checkString.Length)
+            {
+                return false;
+            }
+
+            char[] setOfNumbers = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+
+            for (int i = 0; i < format.Length; i++)
+            {
+                if (format[i] == '#' && (!setOfNumbers.Contains(checkString[i])))
+                {
+                    return false;
+                }
+
+                if(format[i] != '#' && format[i] != checkString[i])
+                {
+                    return false;
+                }
+            }
+            
+            return true;
+        }
         public IEnumerator<string> GetStringsByPattern(string pattern)
         {
             if (pattern == null || pattern == "")

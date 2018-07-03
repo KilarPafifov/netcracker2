@@ -48,6 +48,8 @@ namespace netckacker2
          *   (для сравнения со строками набора символы нужно привести к нижнему регистру)
          * @return строки, начинающиеся с указанной последовательности символов
          */
+
+        bool isStringsEqual(string format, string checkString);
         IEnumerator<string> GetStringsStartingWith(string begin);
         /**
          * Ищет и возвращает все строки, представляющие собой число в заданном формате.<br/>
