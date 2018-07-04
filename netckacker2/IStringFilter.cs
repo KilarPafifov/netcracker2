@@ -49,7 +49,7 @@ namespace netckacker2
          * @return строки, начинающиеся с указанной последовательности символов
          */
 
-        bool isStringsEqual(string format, string checkString);
+        bool CheckStringByNumberFormat(string format, string checkString);
         IEnumerator<string> GetStringsStartingWith(string begin);
         /**
          * Ищет и возвращает все строки, представляющие собой число в заданном формате.<br/>

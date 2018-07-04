@@ -50,7 +50,7 @@ namespace netckacker2
 
             foreach(string elem in rowset)
             {
-                if(isStringsEqual(format, elem))
+                if(CheckStringByNumberFormat(format, elem))
                 {
                     resultSet.Add(elem);
                 }           
@@ -59,18 +59,16 @@ namespace netckacker2
             return resultSet.GetEnumerator();
         }
 
-        public bool isStringsEqual(string format, string checkString)
+        public bool CheckStringByNumberFormat(string format, string checkString)
         {
             if (format.Length != checkString.Length)
             {
                 return false;
             }
 
-            char[] setOfNumbers = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-
             for (int i = 0; i < format.Length; i++)
             {
-                if (format[i] == '#' && (!setOfNumbers.Contains(checkString[i])))
+                if (format[i] == '#' && (!Char.IsDigit(checkString[i])))
                 {
                     return false;
                 }
